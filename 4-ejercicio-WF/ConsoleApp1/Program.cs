@@ -14,15 +14,29 @@ namespace ConsoleApp1
 
             //estructuras de control
 
+            //Arrays y listas
+            int[] numbers = new int[2];
+            List<int> numbersAsList = new List<int>();
+
+            numbersAsList.Add(1);
+            numbersAsList.Add(2);
+            numbersAsList.Add(3);
+
+            foreach (var item in numbersAsList)
+            {
+                Console.WriteLine(item);
+            }
+
             //iteradores
 
             //funciones
             Program.func1();
+            
         }
 
         public static void func1()
         {
-            Console.WriteLine("func ativadaasdasdas");
+            Console.WriteLine("func ativada");
         }
     }
 }
