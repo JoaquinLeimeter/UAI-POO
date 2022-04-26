@@ -29,6 +29,9 @@
         private void InitializeComponent()
         {
             this.dgvEmpleados = new System.Windows.Forms.DataGridView();
+            this.nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.apellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.edad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nombreLabel = new System.Windows.Forms.Label();
             this.apellidoLabel = new System.Windows.Forms.Label();
             this.edadLabel = new System.Windows.Forms.Label();
@@ -36,11 +39,9 @@
             this.txtApellido = new System.Windows.Forms.TextBox();
             this.txtEdad = new System.Windows.Forms.TextBox();
             this.addButton = new System.Windows.Forms.Button();
-            this.nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.apellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.edad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.deleteButton = new System.Windows.Forms.Button();
             this.index = new System.Windows.Forms.Label();
+            this.errorMessage = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEmpleados)).BeginInit();
             this.SuspendLayout();
             // 
@@ -57,10 +58,25 @@
             this.dgvEmpleados.TabIndex = 0;
             this.dgvEmpleados.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvEmpleados_CellClick);
             // 
+            // nombre
+            // 
+            this.nombre.HeaderText = "Nombre";
+            this.nombre.Name = "nombre";
+            // 
+            // apellido
+            // 
+            this.apellido.HeaderText = "Apellido";
+            this.apellido.Name = "apellido";
+            // 
+            // edad
+            // 
+            this.edad.HeaderText = "Edad";
+            this.edad.Name = "edad";
+            // 
             // nombreLabel
             // 
             this.nombreLabel.AutoSize = true;
-            this.nombreLabel.Location = new System.Drawing.Point(69, 44);
+            this.nombreLabel.Location = new System.Drawing.Point(69, 37);
             this.nombreLabel.Name = "nombreLabel";
             this.nombreLabel.Size = new System.Drawing.Size(44, 13);
             this.nombreLabel.TabIndex = 1;
@@ -86,17 +102,21 @@
             // 
             // txtNombre
             // 
-            this.txtNombre.Location = new System.Drawing.Point(124, 41);
+            this.txtNombre.BackColor = System.Drawing.SystemColors.Window;
+            this.txtNombre.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtNombre.Location = new System.Drawing.Point(124, 37);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(100, 20);
             this.txtNombre.TabIndex = 4;
+            this.txtNombre.Enter += new System.EventHandler(this.txtNombre_Enter);
             // 
             // txtApellido
             // 
-            this.txtApellido.Location = new System.Drawing.Point(124, 77);
+            this.txtApellido.Location = new System.Drawing.Point(124, 80);
             this.txtApellido.Name = "txtApellido";
             this.txtApellido.Size = new System.Drawing.Size(100, 20);
             this.txtApellido.TabIndex = 5;
+            this.txtApellido.Enter += new System.EventHandler(this.txtApellido_Enter);
             // 
             // txtEdad
             // 
@@ -114,21 +134,6 @@
             this.addButton.Text = "Agregar";
             this.addButton.UseVisualStyleBackColor = true;
             this.addButton.Click += new System.EventHandler(this.addButton_Click);
-            // 
-            // nombre
-            // 
-            this.nombre.HeaderText = "Nombre";
-            this.nombre.Name = "nombre";
-            // 
-            // apellido
-            // 
-            this.apellido.HeaderText = "Apellido";
-            this.apellido.Name = "apellido";
-            // 
-            // edad
-            // 
-            this.edad.HeaderText = "Edad";
-            this.edad.Name = "edad";
             // 
             // deleteButton
             // 
@@ -149,11 +154,21 @@
             this.index.TabIndex = 9;
             this.index.Text = "0";
             // 
+            // errorMessage
+            // 
+            this.errorMessage.AutoSize = true;
+            this.errorMessage.ForeColor = System.Drawing.Color.Red;
+            this.errorMessage.Location = new System.Drawing.Point(166, 237);
+            this.errorMessage.Name = "errorMessage";
+            this.errorMessage.Size = new System.Drawing.Size(0, 13);
+            this.errorMessage.TabIndex = 10;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.errorMessage);
             this.Controls.Add(this.index);
             this.Controls.Add(this.deleteButton);
             this.Controls.Add(this.addButton);
@@ -166,6 +181,7 @@
             this.Controls.Add(this.dgvEmpleados);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvEmpleados)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -187,6 +203,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn edad;
         private System.Windows.Forms.Button deleteButton;
         private System.Windows.Forms.Label index;
+        private System.Windows.Forms.Label errorMessage;
     }
 }
 
