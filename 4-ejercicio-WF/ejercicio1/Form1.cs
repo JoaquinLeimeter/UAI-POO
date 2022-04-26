@@ -23,17 +23,17 @@ namespace ejercicio1
         {
 
             //validar que haya algo en los inputs
-            if(txtNombre.Text + txtApellido.Text + txtEdad.Text != "")
+            if(1 < 0)
             {
-                //agregamos columna, nos devuelve el indice de esa columna.
-                int n = dgvEmpleados.Rows.Add();
-                //usando el indice agregamos informacion
-                dgvEmpleados.Rows[n].Cells[0].Value = txtNombre.Text;
-                dgvEmpleados.Rows[n].Cells[1].Value = txtApellido.Text;
-                dgvEmpleados.Rows[n].Cells[2].Value = txtEdad.Text;
+               
             }
+            //agregamos columna, nos devuelve el indice de esa columna.
+            int n = dgvEmpleados.Rows.Add();
+            //usando el indice agregamos informacion
+            dgvEmpleados.Rows[n].Cells[0].Value = txtNombre.Text;
+            dgvEmpleados.Rows[n].Cells[1].Value = txtApellido.Text;
+            dgvEmpleados.Rows[n].Cells[2].Value = txtEdad.Text;
             
-
             //clear inputs
             txtNombre.Text = "";
             txtApellido.Text = "";
