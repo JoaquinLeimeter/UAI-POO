@@ -84,10 +84,9 @@ namespace ejercicio1
             //clear dataGridView if there is something
             if (dgvEmpleados.RowCount > 1)
             {
-                for(int j = 0; j < dgvEmpleados.RowCount; j++)
-                {
-                    dgvEmpleados.Rows.Remove(dgvEmpleados.Rows[0]);
-                }
+                
+                    dgvEmpleados.Rows.Clear();
+                
             }
 
             //buscamos la data desde la instancia. 
