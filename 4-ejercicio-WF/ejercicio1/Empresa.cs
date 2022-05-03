@@ -28,7 +28,7 @@ namespace ejercicio1
         }
 
         //Método publico para obtener la lista de empleados
-        //noten que al no ser estática, se obtiene del objeto, no de la clase.
+        //noten que al no ser estática, se obtiene del objeto, no de la clase. 
         public List<Empleado> getEmpleados()
         {
             return Empleados;

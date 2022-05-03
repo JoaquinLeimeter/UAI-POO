@@ -15,7 +15,8 @@ namespace ejercicio1
 
         //obtenemos la instancia de Empleados.
         List<Empleado> Empleados = Empresa.getEmpresa().getEmpleados();
-        //guardamos aquí sobre que índice nos encontramos.
+        List<Empleado> Empleados2 = Empresa.getEmpresa().getEmpleados();
+        //guardamos aquí sobre que índice nos encontramos
         //para poder clickear una Row y luego borrarla.
         private int rowIndex = 0;
 
@@ -28,8 +29,8 @@ namespace ejercicio1
         private void addButton_Click(object sender, EventArgs e)
         {
             int edadComoEntero;
-            //validar que haya algo en los inputs
-            //Valido tambien que
+            //validar que haya algo en los inputs.
+            //Valido tambien que txtEdad.Text sea int.
             if
                 (
                     !String.IsNullOrWhiteSpace(txtNombre.Text) &&
@@ -38,7 +39,6 @@ namespace ejercicio1
                     int.TryParse(txtEdad.Text, out edadComoEntero)
                 )
             {
-                //agregamos una row
                 //agregamos el empleado a la lista de empleados de la empresa
                 Empleados.Add(new Empleado(txtNombre.Text, txtApellido.Text, edadComoEntero));
                 //llenar dgv con los empleados de la lista.
@@ -64,9 +64,9 @@ namespace ejercicio1
         private void deleteButton_Click(object sender, EventArgs e)
         {
             //Tambien podr{iamos deshabilitar el boton siempre que no haya empleados en la lista
-            if (Empleados.Count() > 0 && rowIndex < Empleados.Count())
+            if (Empleados2.Count() > 0 && rowIndex < Empleados2.Count())
             {
-                Empleados.RemoveAt(rowIndex);
+                Empleados2.RemoveAt(rowIndex);
                 FillGrid();
             }
         }
@@ -84,9 +84,7 @@ namespace ejercicio1
             //clear dataGridView if there is something
             if (dgvEmpleados.RowCount > 1)
             {
-                
                     dgvEmpleados.Rows.Clear();
-                
             }
 
             //buscamos la data desde la instancia. 
