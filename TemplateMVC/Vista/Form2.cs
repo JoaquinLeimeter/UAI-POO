@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Controladora;
+using Modelo;
 
 namespace Vista
 {
@@ -19,8 +21,8 @@ namespace Vista
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Modelo.Usuario user = new Modelo.Usuario();
-            Controladora.ControladoraUsuarios.obtener_instancia().Agregar_Usuarios(user);
+            Usuario user = new Usuario();
+            ControladoraUsuarios.obtener_instancia().Agregar_Usuarios(user);
             //MessageBox.Show("");
             ARMA_GRILLA();
         }
@@ -28,7 +30,7 @@ namespace Vista
         private void ARMA_GRILLA()
         {
             dgvUsuarios.DataSource = null;
-            dgvUsuarios.DataSource = Controladora.ControladoraUsuarios.obtener_instancia().Listar_Usuarios();
+            dgvUsuarios.DataSource = ControladoraUsuarios.obtener_instancia().Listar_Usuarios();
         }
     }
 }
