@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Modelo;
 
 namespace Controladora
 {
@@ -21,14 +22,21 @@ namespace Controladora
             return _instancia;
         }
 
-        public void Agregar_Usuarios(Modelo.Usuario usuario)
+        public void Agregar_Usuarios(Usuario usuario)
         {
-            Modelo.Singleton.obtener_instancia().Contexto.Usuarios.Add(usuario);
-            Modelo.Singleton.obtener_instancia().Contexto.SaveChanges();
+            Singleton.obtener_instancia().Contexto.Usuarios.Add(usuario);
+            Singleton.obtener_instancia().Contexto.SaveChanges();
         }
-        public List<Modelo.Usuario> Listar_Usuarios()
+
+        public List<Usuario> Listar_Usuarios()
         {
-            return Modelo.Singleton.obtener_instancia().Contexto.Usuarios.ToList();
+            return Singleton.obtener_instancia().Contexto.Usuarios.ToList();
+        }
+
+        public void Eliminar_Usuarios(Usuario usuario)
+        {
+            Singleton.obtener_instancia().Contexto.Usuarios.Remove(usuario);
+            Singleton.obtener_instancia().Contexto.SaveChanges();
         }
     }
 }
