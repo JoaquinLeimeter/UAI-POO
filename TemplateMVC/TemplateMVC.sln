@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.1831
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vista", "Vista\Vista.csproj", "{386B2F0B-CE2A-4A49-BC71-7D9EB0E3D27E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Controladora", "Controladora\Controladora.csproj", "{4D28641A-3394-4530-A415-E009907AECFF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Modelo", "Modelo\Modelo.csproj", "{2F13B748-A7A9-40D1-BA68-5874ED996A4E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{386B2F0B-CE2A-4A49-BC71-7D9EB0E3D27E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{386B2F0B-CE2A-4A49-BC71-7D9EB0E3D27E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{386B2F0B-CE2A-4A49-BC71-7D9EB0E3D27E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{386B2F0B-CE2A-4A49-BC71-7D9EB0E3D27E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4D28641A-3394-4530-A415-E009907AECFF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4D28641A-3394-4530-A415-E009907AECFF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4D28641A-3394-4530-A415-E009907AECFF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4D28641A-3394-4530-A415-E009907AECFF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2F13B748-A7A9-40D1-BA68-5874ED996A4E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2F13B748-A7A9-40D1-BA68-5874ED996A4E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2F13B748-A7A9-40D1-BA68-5874ED996A4E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2F13B748-A7A9-40D1-BA68-5874ED996A4E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5ECE4630-8CA0-4E81-80F5-4DDD0033097F}
+	EndGlobalSection
+EndGlobal
