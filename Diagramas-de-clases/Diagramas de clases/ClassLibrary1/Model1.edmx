@@ -1,0 +1,123 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl" Namespace="Model1.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2005">
+        <EntityContainer Name="Model1TargetContainer" >
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="Model1" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+        <EntityContainer Name="Model1Container" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Clientes" EntityType="Model1.Cliente" />
+          <EntitySet Name="Reservas" EntityType="Model1.Reserva" />
+          <EntitySet Name="Agencias" EntityType="Model1.Agencia" />
+          <EntitySet Name="Coches" EntityType="Model1.Coches" />
+          <AssociationSet Name="ClienteReserva" Association="Model1.ClienteReserva">
+            <End Role="Cliente" EntitySet="Clientes" />
+            <End Role="Reserva" EntitySet="Reservas" />
+          </AssociationSet>
+          <AssociationSet Name="ReservaCoches" Association="Model1.ReservaCoches">
+            <End Role="Reserva" EntitySet="Reservas" />
+            <End Role="Coches" EntitySet="Coches" />
+          </AssociationSet>
+          <AssociationSet Name="AgenciaReserva" Association="Model1.AgenciaReserva">
+            <End Role="Agencia" EntitySet="Agencias" />
+            <End Role="Reserva" EntitySet="Reservas" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Cliente">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Reservas" Relationship="Model1.ClienteReserva" FromRole="Cliente" ToRole="Reserva" />
+        </EntityType>
+        <EntityType Name="Reserva">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Cliente" Relationship="Model1.ClienteReserva" FromRole="Reserva" ToRole="Cliente" />
+          <Property Name="ClienteId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Coches" Relationship="Model1.ReservaCoches" FromRole="Reserva" ToRole="Coches" />
+          <NavigationProperty Name="Agencia" Relationship="Model1.AgenciaReserva" FromRole="Reserva" ToRole="Agencia" />
+        </EntityType>
+        <EntityType Name="Agencia">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Reserva" Relationship="Model1.AgenciaReserva" FromRole="Agencia" ToRole="Reserva" />
+        </EntityType>
+        <EntityType Name="Coches">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Reserva" Relationship="Model1.ReservaCoches" FromRole="Coches" ToRole="Reserva" />
+          <Property Name="ReservaId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <Association Name="ClienteReserva">
+          <End Type="Model1.Cliente" Role="Cliente" Multiplicity="1" />
+          <End Type="Model1.Reserva" Role="Reserva" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cliente">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Reserva">
+              <PropertyRef Name="ClienteId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ReservaCoches">
+          <End Type="Model1.Reserva" Role="Reserva" Multiplicity="1" />
+          <End Type="Model1.Coches" Role="Coches" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Reserva">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Coches">
+              <PropertyRef Name="ReservaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="AgenciaReserva">
+          <End Type="Model1.Agencia" Role="Agencia" Multiplicity="1" />
+          <End Type="Model1.Reserva" Role="Reserva" Multiplicity="1" />
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs" Space="C-S">
+        <Alias Key="Model" Value="Model1" />
+        <Alias Key="Target" Value="Model1.Store" />
+        <EntityContainerMapping CdmEntityContainer="Model1Container" StorageEntityContainer="Model1TargetContainer">
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
