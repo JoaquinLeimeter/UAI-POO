@@ -9,6 +9,13 @@ namespace ClassLibrary2
 {
     public class Class1
     {
+        Class2 instans = new Class2();
+        ClassLibrary1.Class2 instancia = new ClassLibrary1.Class2();
+
+        public void OtherMethod()
+        {
+            instancia.DoStuff();
+        }
         ClassLibrary1.Class1 instance = new ClassLibrary1.Class1();
     } 
 }
