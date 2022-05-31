@@ -16,5 +16,6 @@ namespace ClassLibrary2
         {
             instancia.DoStuff();
         }
+        ClassLibrary1.Class1 instance = new ClassLibrary1.Class1();
     } 
 }
